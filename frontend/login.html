@@ -1,0 +1,185 @@
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WELMORA | Sign In</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+ <div id="header-placeholder">
+ <a href="header.html"></a></div>
+<section class="auth-section">
+<div class="container">
+<div class="auth-card">
+
+<div class="auth-tabs">
+<a href="login.html" class="active">Sign In</a>
+<a href="register.html">Create Account</a>
+</div>
+
+<h2>Welcome Back</h2>
+<p>Sign in to see your order history and saved details.</p>
+
+<form class="contact-form" id="login-form">
+<input type="text" id="li-email" name="email" placeholder="Email address" required>
+<input type="password" id="li-password" name="password" placeholder="Password" required>
+<button type="submit" class="btn">Sign In</button>
+<p class="form-status" id="login-status"></p>
+</form>
+
+<p class="auth-switch">New to Welmora? <a href="register.html">Create an account</a></p>
+
+</div>
+</div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<div id="footer-placeholder">
+ <a href="footer.html"></a></div>
+
+<!-- Back To Top -->
+
+<div class="back-top">
+
+<i class="fas fa-arrow-up"></i>
+
+</div>
+<!-- ================= SCRIPTS ================= -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/include.js"></script>
+
+<script>
+
+AOS.init({
+
+duration:1000,
+
+once:true
+
+});
+
+if (document.querySelector(".heroSwiper")) {
+  new Swiper(".heroSwiper", {
+    loop: true,
+    autoplay: { delay: 5000 },
+    pagination: { el: ".swiper-pagination", clickable: true }
+  });
+}
+
+</script>
+<div class="chat-widget">
+
+<button id="chatToggle">
+
+💬
+
+</button>
+
+<div class="chat-box">
+
+<div class="chat-header">
+
+Welmora AI
+
+</div>
+
+<div class="chat-body">
+
+<div class="bot-message">
+
+Hi 👋
+
+I'm Welmora AI.
+
+How can I help you today?
+
+</div>
+
+</div>
+
+<div class="chat-footer">
+
+<input
+id="chatInput"
+placeholder="Ask anything...">
+
+<button id="sendBtn">
+
+Send
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/chatbot.js"></script>
+
+<script>
+  // Calls the real backend at POST /api/auth/login (see backend/routes/auth.js).
+  const loginForm = document.getElementById("login-form");
+  const statusEl = document.getElementById("login-status");
+
+  loginForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const email = document.getElementById("li-email").value.trim();
+    const password = document.getElementById("li-password").value;
+
+    statusEl.textContent = "Signing in…";
+    statusEl.className = "form-status";
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || "Could not sign in");
+
+      localStorage.setItem("welmora_token", result.token);
+      localStorage.setItem("welmora_user", JSON.stringify(result.user));
+
+      statusEl.textContent = "✅ Signed in! Redirecting…";
+      statusEl.className = "form-status success";
+      setTimeout(() => (window.location.href = "index.html"), 800);
+    } catch (err) {
+      statusEl.textContent = "❌ " + err.message;
+      statusEl.className = "form-status error";
+    }
+  });
+</script>
+
+</body>
+
+</html>
