@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-    /* ==========================================
-       AOS ANIMATION
-    ========================================== */
-
+    /* ====AOS ANIMATION====== */
     if (typeof AOS !== "undefined") {
 
         AOS.init({
@@ -13,12 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
-
-
-    /* ==========================================
-       CURRENT YEAR
-    ========================================== */
-
+    /* ========CURRENT YEAR ====== */
     const yearElement = document.getElementById("currentYear");
 
     if (yearElement) {
@@ -26,12 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         yearElement.textContent = new Date().getFullYear();
 
     }
-
-
-    /* ==========================================
-       MOBILE MENU
-    ========================================== */
-
+    /* =MOBILE MENU====== */
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.querySelector(".nav-links");
 
@@ -57,12 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
-
-
-    /* ==========================================
-       HEADER SCROLL EFFECT
-    ========================================== */
-
+    /* == HEADER SCROLL EFFECT======= */
     const header = document.getElementById("header");
 
     if (header) {
@@ -82,12 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
-
-
-    /* ==========================================
-       NEWSLETTER
-    ========================================== */
-
+    /* =NEWSLETTER====== */
     const newsletterForm =
         document.getElementById("newsletterForm");
 
@@ -113,12 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
-
-
-    /* ==========================================
-       CHATBOT
-    ========================================== */
-
+    /* =CHATBOT= */
     const chatToggle =
         document.getElementById("chatToggle");
 
@@ -155,12 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
-
-
-    /* ==========================================
-       CHAT MESSAGE
-    ========================================== */
-
+    /* ==CHAT MESSAGE=== */
     function sendMessage() {
 
         if (!chatInput || !chatBody) {
@@ -173,10 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!message) {
             return;
         }
-
-
         /* User message */
-
         const userMessage =
             document.createElement("div");
 
@@ -187,13 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
             message;
 
         chatBody.appendChild(userMessage);
-
-
         chatInput.value = "";
-
-
         /* Temporary bot response */
-
         setTimeout(function () {
 
             const botMessage =
@@ -211,13 +169,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 chatBody.scrollHeight;
 
         }, 700);
-
-
         chatBody.scrollTop =
             chatBody.scrollHeight;
 
     }
-
 
     if (sendChat) {
 
@@ -227,8 +182,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     }
-
-
     if (chatInput) {
 
         chatInput.addEventListener(

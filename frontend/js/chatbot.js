@@ -1,13 +1,4 @@
-// js/chatbot.js
-//
-// Powers the floating chat widget (bottom-right button, id="chatToggle").
-// This is a simple keyword-matching bot — no paid AI service involved.
-//
-// HOW TO EDIT THE ANSWERS:
-// Scroll down to the "responses" list. Each entry has:
-//   - keywords: words that trigger this answer (lowercase)
-//   - reply: the message the bot sends back
-// To add a new topic, copy one block and change the words/reply.
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("chatToggle");

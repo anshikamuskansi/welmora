@@ -1,12 +1,3 @@
-// js/app.js
-//
-// Shared behaviour for every page:
-//   - Header turns solid ("sticky") once you scroll down
-//   - Mobile hamburger menu opens/closes the nav links
-//   - "Back to top" button appears after scrolling, and scrolls up on click
-//   - FAQ accordion (only does something on pages that have .faq-item)
-//   - Simple front-end-only handlers for the newsletter/contact forms
-//     where a page hasn't already wired up its own submit handler
 
 document.addEventListener("DOMContentLoaded", function () {
   // ---------- Sticky header ----------
