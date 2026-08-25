@@ -113,8 +113,8 @@
 //     return div.innerHTML;
 //   }
 // });
-const API = "http://localhost:5000/api/products";
-
+// const API = "http://localhost:5000/api/products";
+const API_URL = "/api/products";
 async function loadHomeProducts() {
 
     const grid = document.getElementById("home-product-grid");

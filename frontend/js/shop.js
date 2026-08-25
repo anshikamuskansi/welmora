@@ -207,9 +207,9 @@
 // shop.js
 // ===============================
 
-const BACKEND_ORIGIN = "http://localhost:5000";
-const API_URL = BACKEND_ORIGIN + "/api/products";
-
+// const BACKEND_ORIGIN = "http://localhost:5000";
+// const API_URL = BACKEND_ORIGIN + "/api/products";
+const API_URL = "/api/products";
 let allProducts = [];
 let activeCategory = "All";
 
