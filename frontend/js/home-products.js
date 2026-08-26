@@ -8,7 +8,7 @@ async function loadHomeProducts() {
 
     try {
 
-        const response = await fetch(API);
+           const response = await fetch(API_URL);
 
         if (!response.ok) {
             throw new Error("Failed to load products");
@@ -36,7 +36,7 @@ async function loadHomeProducts() {
                 <div class="product-image">
 
                     <img
-                        src="http://localhost:5000${product.imageUrl}"
+                           src="${product.imageUrl}"
                         alt="${product.name}"
                         loading="lazy">
 
