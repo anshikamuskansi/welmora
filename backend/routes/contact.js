@@ -1178,53 +1178,25 @@ module.exports = async function handler(
 
         }
 
-        // catch (emailError) {
-
-        //     console.error(
-        //         "Gmail notification failed:",
-        //         emailError
-        //     );
-
-
-        //     // MongoDB saved successfully
-        //     // but email failed
-
-        //     return res.status(500).json({
-
-        //         success: false,
-
-        //         saved: true,
-
-        //         message:
-        //             "Your enquiry was saved successfully, but the email notification could not be sent. Please try again later.",
-
-        //         enquiryId:
-        //             enquiry._id
-
-        //     });
-
-        // }
-
-                catch (emailError) {
-
-            // The customer's message is already safely saved in
-            // MongoDB at this point - a failed email notification
-            // shouldn't make the form look broken to them. Just
-            // log it quietly so you (the site owner) can check
-            // your email setup later.
+        catch (emailError) {
 
             console.error(
-                "Gmail notification failed (enquiry was still saved):",
-                emailError.message
+                "Gmail notification failed:",
+                emailError
             );
 
 
-            return res.status(201).json({
+            // MongoDB saved successfully
+            // but email failed
 
-                success: true,
+            return res.status(500).json({
+
+                success: false,
+
+                saved: true,
 
                 message:
-                    "Your enquiry has been submitted successfully. We will contact you soon.",
+                    "Your enquiry was saved successfully, but the email notification could not be sent. Please try again later.",
 
                 enquiryId:
                     enquiry._id
