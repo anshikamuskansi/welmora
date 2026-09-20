@@ -123,6 +123,7 @@ const productSchema = new mongoose.Schema(
         "Hormonal Health",
         "Pain Relief",
         "Other",
+        
       ],
     },
 
