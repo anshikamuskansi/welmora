@@ -140,22 +140,7 @@
 //   }
 // });
 
-// // DELETE a product
-// router.delete("/:id", checkAdminPassword, async (req, res) => {
-//   try {
-//     const product = await Product.findById(req.params.id);
-//     if (!product) return res.status(404).json({ message: "Product not found" });
 
-//     // Delete the image file too, so uploads folder doesn't fill up
-//     const imagePath = path.join(__dirname, "..", product.imageUrl);
-//     if (fs.existsSync(imagePath)) fs.unlinkSync(imagePath);
-
-//     await product.deleteOne();
-//     res.json({ message: "Product deleted" });
-//   } catch (err) {
-//     res.status(500).json({ message: "Could not delete product", error: err.message });
-//   }
-// });
 
 // module.exports = router;
 
