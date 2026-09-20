@@ -85,18 +85,7 @@
 //     }
 
 
-//     cachedConnection =
-//         await mongoose.connect(
-//             process.env.MONGO_URI,
-//             {
-//                 bufferCommands: false
-//             }
-//         );
 
-
-//     return cachedConnection;
-
-// }
 
 
 // // ==========================================
