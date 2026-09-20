@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema(
   {
     businessName: {
+      
       type: String,
       required: [true, "Business name is required"],
       trim: true,
