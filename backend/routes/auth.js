@@ -16,6 +16,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
 const User = require("../models/User");
 
 const JWT_SECRET = process.env.JWT_SECRET || "please-set-a-real-secret-in-env";
