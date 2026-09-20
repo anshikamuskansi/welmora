@@ -133,12 +133,6 @@
 //       product.imageUrl = "/uploads/" + req.file.filename;
 //     }
 
-//     const updatedProduct = await product.save();
-//     res.json(updatedProduct);
-//   } catch (err) {
-//     res.status(400).json({ message: "Could not update product", error: err.message });
-//   }
-// });
 
 
 
