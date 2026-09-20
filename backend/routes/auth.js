@@ -57,6 +57,7 @@ router.post("/register", async (req, res) => {
       user: publicUser(user),
     });
   } catch (err) {
+    
     res.status(500).json({ message: "Could not create account", error: err.message });
   }
 });
